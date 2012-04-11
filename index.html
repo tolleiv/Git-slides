@@ -54,13 +54,14 @@
     <div id="agenda2" class="step slide">
         <h3>Agenda - tomorrow</h3>
         <ul>
-            <li>Steffen Gebert</li>
-            <ul><li>Use Git to improve TYPO3</li></ul>
             <li>Peter Niederlag</li>
             <ul>
                 <li>Diving deeep into Git</li>
+                <li>Working with remote repositories</li>
                 <li>Interacting with SVN</li>
             </ul>
+            <li>Steffen Gebert</li>
+            <ul><li>Use Git to improve TYPO3</li></ul>
 
         </ul>
     </div>
@@ -107,6 +108,7 @@
 <command>git config --global color.status auto</command>
 <command>git config --global color.branch auto</command>
 <command>git config --global pager.status yes</command>
+<command>
 </code>
     </div>
     <div id="createrepo" class="step slide">
@@ -272,21 +274,44 @@ no changes added to commit (use "git add" and/or "git commit -a")</output>
 <command>git add lib/Greeter.php</command>
 <command>git commit -m "Merged master - kept Greeter"</command></code>
     </div>
-    <div id="rebase" title="Rebase" class="step slide nok">
+    <div id="rebase" title="Rebase" class="step slide">
         <h3>Rebase for a new history</h3>
+        Rebase your current branch to be based on a "new" master:
+        <code><command>git rebase master</command>
+        </code>
 
+        Reorder, squash and drop commits with interactive commits:
+        <code><command>git rebase -i HEAD~3</command></code>
     </div>
-    <div id="cheery-pick" class="step slide nok">
+    <div id="cheery-pick" class="step slide">
         <h3>Cherry-Picking</h3>
-    </div>
-    <div id="remote" title="Remote repositories" class="step slide nok">
-        <h3>Remote repositories</h3>
+        Picking "some" commits from one branch within others:
 
+        <code><command>git cherry-pick b059311</command></code>
+    </div>
+    <div id="remote" title="Remote repositories" class="step slide">
+        <h3>Remote repositories</h3>
+        Connecting with other repositories:
+        <code><command>git remote add origin git@github.com/user/repo</command>
+<command>git push origin</command>
+<command>git fetch origin</command>
+<command>git pull origin</command>
+        </code>
+
+        Using remote repositories right from the beginning
+        <code><command>git clone git@github.com/user/repo</command></code>
     </div>
 
     <div id="stash" title="Stash" class="step slide nok">
         <h3>Stash</h3>
+        A safe place to keep your uncommitted ideas:
+        <code><command>git stash</command>
+        </code>
 
+        From where your can retrieve everything back once you need it:
+        <code><command>git stash pop</command>
+<command>git stash apply</command>
+        </code>
     </div>
     <div id="tips" class="step slide nok">
         <h3>Tips</h3>
@@ -320,7 +345,8 @@ no changes added to commit (use "git add" and/or "git commit -a")</output>
     </div>
 </div>
 <script src="impress/js/impress.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<!-- http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/ -->
+<script src="jquery.min.js" type="text/javascript"></script>
 <script type="text/javascript">
     var presentation;
     $(document).ready(function () {
@@ -331,7 +357,7 @@ no changes added to commit (use "git add" and/or "git commit -a")</output>
                 case 'w': presentation.goto('workflow'); break;
                 case 'o': presentation.goto('overview'); break;
                 case 'n': presentation.next(); break;
-                case 'p': presentation.prev(); break;
+                case 'b': presentation.prev(); break;
                 default: break;
             }
         });
