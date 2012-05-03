@@ -16,9 +16,11 @@
     <style type="text/css">
         h1 { font-size:10em; margin-top:-0.5em; }
         h3 { font-size:2em; line-height:2em; }
-        #impress .slide { color: #3e3e3e; }
+        #impress .slide { color: #3e3e3e; font-weight: normal;}
+      /*  #impress .slide { color: #000; font-weight: bold;} */
         .subline { margin-top: -2em; }
         code { font-family: monospace; white-space: pre; font-size: 0.8em; display: block; }
+        .inline { display: inline; }
         code command { background: url(i/prompt.png) no-repeat 0 0.3em; padding-left: 0.8em; }
         code output { font-size: 0.8em; line-height: 1.3em; display: inline-block; }
         ul { list-style: disc; margin-left: 2em; line-height: 1.5em; margin-bottom: 0.5em; }
@@ -218,7 +220,7 @@ no changes added to commit (use "git add" and/or "git commit -a")</output>
         <p>Create tags:</p>
         <code><command>git tag interactive</command>
 <command>git checkout 4193941</command>
-<command>git tag first</command>
+<command>git tag first -m "A comment"</command>
         </code>
         <p>List tags:</p>
         <code><command>git tag</command>
@@ -302,16 +304,65 @@ no changes added to commit (use "git add" and/or "git commit -a")</output>
         <code><command>git clone git@github.com/user/repo</command></code>
     </div>
 
-    <div id="stash" title="Stash" class="step slide nok">
+    <div id="stash" title="Stash" class="step slide">
         <h3>Stash</h3>
-        A safe place to keep your uncommitted ideas:
+        A safe place to keep your uncommitted "ideas":
         <code><command>git stash</command>
+<command>git stash save 'A message along with the stash'</command>
         </code>
 
         From where your can retrieve everything back once you need it:
         <code><command>git stash pop</command>
 <command>git stash apply</command>
         </code>
+
+        See what's in the stash:
+        <code><command>git stash list</command></code>
+    </div>
+    <div id="notes" class="step slide nok">
+        <h3>Making notes</h3>
+
+        <p>Adding details to commits without changing the commits itself. Nice if you want to document things long time after your did the commit.</p>
+        <code><command>git note -m "Further details for my commit" b059311</command>
+<command>git notes edit b059311</command>
+<command>git notes show b059311</command>
+        </code>
+    </div>
+    <div id="eofs" class="step slide nok">
+        <h3>&lt;cr&gt;&lt;lf&gt;</h3>
+        <!-- thank Peter -->
+        <p>Fix line ending whenever things are sent to the repository (input) or during commit and checkout (true)</p>
+        <code><command>git config --global core:autocrlf [input|true]</command>
+        </code>
+
+        <p>In case things are change, .git can warn you or show an error.</p>
+        <code><command>git config core.safecrlf [warn|true]</command>
+        </code>
+
+        <p>Place that configuration in <i>.gitproperties</i> to make sure this is true for every clone.</p>
+        <code><command>* text=auto</command>
+<command>*.txt text</command>
+<command>*.sh eof=lf</command>
+<command>*.jpg -text</command>
+        </code>
+    </div>
+    <div id="ignore" class="step slide nok">
+        <h3>Blind out some files</h3>
+
+        <p>List the files or directories in your <code class="inline">.gitignore</code> file in your repository to avoid that they're used anywhere.</p>
+        Within that file:
+        <code>*.bak
+!file.bak
+dirname
+        </code>
+
+        <p>Add files anyways:</p>
+        <code><command>git add -f &lt;filename.php&gt;</command>
+        </code>
+
+        <p>Maintain a global ignore file to avoid double work.</p>
+        <code><command>git config --global core.excludesfile ~/.git/.gitignore</command></code>
+
     </div>
     <div id="tips" class="step slide nok">
         <h3>Tips</h3>
@@ -320,8 +371,8 @@ no changes added to commit (use "git add" and/or "git commit -a")</output>
             <li>Granular commits:<code><command>git add -p</command></code></li>
             <li>Highlight broken whitespaces before it's too late:<br />
                 <code><command>git config color.diff.whitespace "red reverse"</command></code></li>
-            <li>Maintain global ignore lists:<br />
-                <code><command>git config core.excludesfile ~/.git/.gitignore</command></code></li>
+            <li>Use a merge tool:<br />
+                <code><command>git config merge.tool melt</command></code></li>
             <li>Use commit message templates:<br />
                 <code><command>git config commit.template &lt;file&gt;</command></code></li>
         </ul>
