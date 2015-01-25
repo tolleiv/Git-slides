@@ -39,11 +39,11 @@
 
     <div id="git" class="step" data-x="0" data-z="2000" data-y="-1500" data-rotate-x="-90" data-scale="3" >
         <h1>Git</h1>
-        <p class="subline">T3DD12 - Tolleiv Nietsch @tolleiv</p>
+        <p class="subline">Tolleiv Nietsch @tolleiv</p>
         <p>Slides: <a href="http://bit.ly/T3DD12-GitBasics">bit.ly/T3DD12-GitBasics</a></p>
     </div>
     <div id="agenda" class="step slide">
-        <h3>Agenda - today</h3>
+        <h3>Agenda</h3>
         <ul>
             <li>Source Code Management</li>
             <li>Prepare yourself</li>
@@ -51,20 +51,6 @@
             <li>Tags and Branches</li>
             <li>Dealing with history</li>
             <li>Working remote</li>
-        </ul>
-    </div>
-    <div id="agenda2" class="step slide">
-        <h3>Agenda - tomorrow</h3>
-        <ul>
-            <li>Peter Niederlag</li>
-            <ul>
-                <li>Diving deeep into Git</li>
-                <li>Working with remote repositories</li>
-                <li>Interacting with SVN</li>
-            </ul>
-            <li>Steffen Gebert</li>
-            <ul><li>Use Git to improve TYPO3</li></ul>
-
         </ul>
     </div>
     <div id="scm" class="step slide">
@@ -92,7 +78,7 @@
         <br />
         <p>You should see be able to do this:</p>
     <code>    <command>git --version</command>
-    <output>git version 1.7.5.4</output>
+    <output>git version 2.2.1</output>
     <command>git --help</command>
     </code>
     </div>
@@ -117,13 +103,16 @@
         <h3>Let's get started</h3>
 
         <p>Creating a local repository:</p>
-        <code><command>mkdir t3dd12; cd t3dd12</command>
+        <code><command>mkdir workshop; cd workshop</command>
 <command>vim hello.php</command>
 <output>&lt;?php echo 'Hello, World!!'; &lt;esc&gt;:wq</output>
 <command>git init</command>
-<output>Initialized empty Git repository in /home/you/t3dd12/.git</output>
+<output>Initialized empty Git repository in /home/you/workshop/.git</output>
 <command>git add hello.php</command>
 <command>git commit -m "First commit"</command>
+<output>[master (root-commit) 7ff60b3] First commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 hello.php</output>
         </code>
 
     </div>
@@ -147,7 +136,8 @@ nothing to commit (working directory clean)</output>
 #
 no changes added to commit (use "git add" and/or "git commit -a")</output>
 <command>git add hello.php</command>
-<command>git commit -m "Hello world interactive."</command></code>
+<command>git commit -m "Hello world interactive."</command>
+</code>
     </div>
     <div id="changes_files" class="step slide">
         <h3>Changes != files</h3>
