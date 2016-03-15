@@ -78,7 +78,7 @@
         <br />
         <p>You should see be able to do this:</p>
     <code>    <command>git --version</command>
-    <output>git version 2.2.1</output>
+    <output>git version 2.7.3</output>
     <command>git --help</command>
     </code>
     </div>
@@ -88,15 +88,15 @@
         <p>Minimal configuration - who are you?</p>
 <code><command>git config --global user.name "Your Name"</command>
 <command>git config --global user.email "you@example.com"</command>
-
 </code>
-        <p>Make yourself a home</p>
+<p><br/>Did that work?</p><code><command>git config -l</command></code>
+
+	<p><br/>Make yourself a home</p>
 <code><command>git config --global core.editor vim</command>
 <command>git config --global color.diff auto</command>
 <command>git config --global color.status auto</command>
 <command>git config --global color.branch auto</command>
 <command>git config --global pager.status yes</command>
-<command>
 </code>
     </div>
     <div id="createrepo" class="step slide">
@@ -117,7 +117,7 @@
 
     </div>
 
-    <div id="workflow" class="step"  data-x="200" data-z="-1200" data-y="-1500" data-rotate-x="-90" data-scale="5">
+    <div id="workflow" class="step"  data-x="200" data-z="-1200" data-y="-1500" data-rotate-x="-90" data-scale="3">
         <img src="i/git-workflow.svg" alt="Git-workflows-visualized" style="margin-left: -150px"/>
     </div>
 
@@ -252,19 +252,30 @@ no changes added to commit (use "git add" and/or "git commit -a")</output>
         </code>
     </div>
     <div id="merge_conflicts" title="Merging conflicts" class="step slide">
-        <h3>Resolving conflicts</h3>
+        <h3>Merge conflicts</h3>
         <p>Create the conflict:</p>
-        <code><command>git checkout master</command>
-<command>vim lib/Greeter.php</command>
-<command>git add lib/Greeter.php</command>
-<command>git commit -m "Prepare greeter"</command>
-<command>git checkout greet</command>
+        <code><command>git checkout -b a-branch</command>
+<command>vim some-file.txt</command>
+<command>git add some-file.txt</command>
+<command>git commit -m "Modified file"</command>
+<command>git checkout master</command>
+<command>vim some-file.txt</command>
+<command>git add some-file.txt</command>
+<command>git commit -m "Modified file differently"</command>
+<command>git checkout a-branch</command>
 <command>git merge master</command>
     </code>
-        <p>Resolve it:</p>
-        <code><command>vim lib/Greeter.php</command>
-<command>git add lib/Greeter.php</command>
-<command>git commit -m "Merged master - kept Greeter"</command></code>
+    </div>
+    <div id="merge_conflicts_resolution" title="Resolve conflicts" class="step slide">
+        <h3>Merge conflict:</h3>
+        <p>Resolve it manually:</p>
+        <code><command>vim some-file.txt</command>
+<command>git add some-file.txt</command>
+<command>git commit -m "Merged master ... resolved the line fight"</command>
+	</code>
+
+	<p>Solution strategy:</p>
+	<code><command>git merge --strategy-option theirs</command></code>
     </div>
     <div id="rebase" title="Rebase" class="step slide">
         <h3>Rebase for a new history</h3>
