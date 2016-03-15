@@ -104,15 +104,15 @@
 
         <p>Creating a local repository:</p>
         <code><command>mkdir workshop; cd workshop</command>
-<command>vim hello.php</command>
-<output>&lt;?php echo 'Hello, World!!'; &lt;esc&gt;:wq</output>
+<command>vim a-file.txt</command>
+<output>Hello, World!!&lt;esc&gt;:wq</output>
 <command>git init</command>
 <output>Initialized empty Git repository in /home/you/workshop/.git</output>
-<command>git add hello.php</command>
+<command>git add a-file.txt</command>
 <command>git commit -m "First commit"</command>
 <output>[master (root-commit) 7ff60b3] First commit
  1 file changed, 1 insertion(+)
- create mode 100644 hello.php</output>
+ create mode 100644 a-file.txt</output>
         </code>
 
     </div>
@@ -126,52 +126,52 @@
         <code><command>git status</command>
 <output># On branch master
 nothing to commit (working directory clean)</output>
-<command>vim hello.php</command>
+<command>vim a-file.txt</command>
 <output># On branch master
 # Changed but not updated:
 #   (use "git add &lt;file&gt;..." to update what will be committed)
 #   (use "git checkout -- &lt;file&gt;..." to discard changes in working directory)
 #
-#	modified:   hello.php
+#	modified:   a-file.txt
 #
 no changes added to commit (use "git add" and/or "git commit -a")</output>
-<command>git add hello.php</command>
-<command>git commit -m "Hello world interactive."</command>
+<command>git add a-file.txt</command>
+<command>git commit -m "Second commit"</command>
 </code>
     </div>
     <div id="changes_files" class="step slide">
         <h3>Changes != files</h3>
-        <code><command>vim hello.php</command>
-<command>git add hello.php</command>
-<command>vim hello.php</command>
+        <code><command>vim a-file.txt</command>
+<command>git add a-file.txt</command>
+<command>vim a-file.txt</command>
 <command>git status</command>
 <output># On branch master
 # Changes to be committed:
 #   (use "git reset HEAD &lt;file&gt;..." to unstage)
 #
-#	modified:   hello.php
+#	modified:   a-file.txt
 #
 # Changed but not updated:
 #   (use "git add &lt;file&gt;..." to update what will be committed)
 #   (use "git checkout -- &lt;file&gt;..." to discard changes in working directory)
 #
-#	modified:   hello.php
+#	modified:   a-file.txt
 #</output></code>
     </div>
     <div id="reset" title="reset" class="step slide">
         <h3>Undo...</h3>
         <p>Remove change before they've been staged</p>
-        <code><command>vim hello.php</command>
-<command>git checkout hello.php</command>
+        <code><command>vim a-file.txt</command>
+<command>git checkout a-file.txt</command>
         </code>
         <p>Removing changes from the index:</p>
-        <code><command>vim hello.php</command>
-<command>git add hello.php</command>
-<command>git reset HEAD head.php</command>
-<command>vim hello.php</command>
+        <code><command>vim a-file.txt</command>
+<command>git add a-file.txt</command>
+<command>git reset HEAD head.txt</command>
+<command>vim a-file.txt</command>
         </code>
         <p>Partially adding things:</p>
-        <code><command>git add -p hello.php</command>
+        <code><command>git add -p a-file.txt</command>
 <command>git status</command></code>
     </div>
 <!--
@@ -358,7 +358,7 @@ dirname
         </code>
 
         <p>Add files anyways:</p>
-        <code><command>git add -f &lt;filename.php&gt;</command>
+        <code><command>git add -f &lt;filename&gt;</command>
         </code>
 
         <p>Maintain a global ignore file to avoid double work.</p>
