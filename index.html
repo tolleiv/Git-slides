@@ -266,6 +266,24 @@ no changes added to commit (use "git add" and/or "git commit -a")</output>
 <command>git merge master</command>
     </code>
     </div>
+    <div id="merge_ff" title="Merging" class="step slide">
+        <h3>Merging (Non Fast Forward)</h3>
+        <code><command>git checkout -b brnch</command>
+<command>vim some-file.txt</command>
+<command>git add some-file.txt</command>
+<command>git commit -m "Modification"</command>
+<command>git checkout master</command>
+<command>git merge --no-ff brnch</command>
+<command>git hist --all</command>
+<output>*   ed4f2e5 2016-03-15 | Merge branch 'brnch' (HEAD -> master)
+|\  
+| * ae94929 2016-03-15 | Modification (brnch)
+|/  
+* f8d0994 2016-03-15 | Add a line</output>
+	</code>
+
+	<p>Heavily used in "<a href="http://nvie.com/posts/a-successful-git-branching-model/">A successful Git branching model</a>"</p>
+    </div>
     <div id="merge_conflicts_resolution" title="Resolve conflicts" class="step slide">
         <h3>Merge conflict:</h3>
         <p>Resolve it manually:</p>
