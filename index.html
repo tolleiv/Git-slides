@@ -46,11 +46,19 @@
         <h3>Agenda</h3>
         <ul>
             <li>Source Code Management</li>
-            <li>Prepare yourself</li>
             <li>Working local</li>
             <li>Tags and Branches</li>
             <li>Dealing with history</li>
             <li>Working remote</li>
+        </ul>
+    </div>
+    <div id="gethandsdirty" class="step slide">
+        <h3>Online Trainingsmaterial</h3>
+        <ul>
+            <li>Git - SVN Crash Course<br/><code class="inline">(https://git-scm.com/course/svn.html)</code></li>
+            <li>Github interactive tutorial<br/><code class="inline">(try.github.io)</code></li>
+            <li>Lean Git Branches<br/><code class="inline">(https://learngitbranching.js.org/)</code></li>
+            <li>Getting started with Git<br/><code class="inline">(http://git.rocks/getting-started/)</code></li>
         </ul>
     </div>
     <div id="scm" class="step slide">
@@ -63,24 +71,6 @@
             <li>Multiple, non-centralized repositories with their own full history</li>
             <li>Easy collaboration between repositories</li>
         </ul>
-    </div>
-    <div id="install" class="step slide">
-        <h3>Let's get started - install Git!</h3>
-        <ul>
-            <li>Linux:</li>
-            <ul style="list-style: none;">
-                <li><code><command>yum install git-core</command></code></li>
-                <li><code><command>apt-get install git-core</command></code></li>
-            </ul>
-            <li>Mac: <a href="http://git-scm.com/download/mac">git-scm.com/download/mac</a></li>
-            <li>Windows: <a href="http://git-scm.com/download/windows">git-scm.com/download/windows</a> </li>
-        </ul>
-        <br />
-        <p>You should see be able to do this:</p>
-    <code>    <command>git --version</command>
-    <output>git version 2.7.3</output>
-    <command>git --help</command>
-    </code>
     </div>
     <div id="configure" class="step slide">
         <h3>Let's get started - configure.</h3>
@@ -103,11 +93,8 @@
         <h3>Let's get started</h3>
 
         <p>Creating a local repository:</p>
-        <code><command>mkdir workshop; cd workshop</command>
-<command>vim a-file.txt</command>
-<output>Hello, World!!&lt;esc&gt;:wq</output>
-<command>git init</command>
-<output>Initialized empty Git repository in /home/you/workshop/.git</output>
+<code><command>git init</command>
+<output>Initialized empty Git repository in /home/you/demo/.git</output>
 <command>git add a-file.txt</command>
 <command>git commit -m "First commit"</command>
 <output>[master (root-commit) 7ff60b3] First commit
@@ -115,10 +102,6 @@
  create mode 100644 a-file.txt</output>
         </code>
 
-    </div>
-
-    <div id="workflow" class="step"  data-x="200" data-z="-1200" data-y="-1500" data-rotate-x="-90" data-scale="3">
-        <img src="i/git-workflow.svg" alt="Git-workflows-visualized" style="margin-left: -150px"/>
     </div>
 
     <div id="status" class="step slide">
@@ -139,6 +122,11 @@ no changes added to commit (use "git add" and/or "git commit -a")</output>
 <command>git commit -m "Second commit"</command>
 </code>
     </div>
+
+    <div id="workflow" class="step"  data-x="200" data-z="-1200" data-y="-1500" data-rotate-x="-90" data-scale="3">
+        <img src="i/git-workflow.svg" alt="Git-workflows-visualized" style="margin-left: -150px"/>
+    </div>
+
     <div id="changes_files" class="step slide">
         <h3>Changes != files</h3>
         <code><command>vim a-file.txt</command>
@@ -197,12 +185,12 @@ no changes added to commit (use "git add" and/or "git commit -a")</output>
         <code><command>git log --pretty=format:"%h %ad | %s%d [%an]" --graph \
     --date=short</command>
         </code>
-
+<!--
         <p>Let's remember this one:</p>
 <code><command>git config --global alias.hist '!git log \
     --pretty=format:"%h %ad | %s%d [%an]" \
     --graph --date=short'</command>
-<command>git hist</command></code>
+<command>git hist</command>--></code>
 
     </div>
     <div id="tag" title="tags"class="step slide">
@@ -251,6 +239,7 @@ no changes added to commit (use "git add" and/or "git commit -a")</output>
 * 4193941 2012-04-07 | First commit (first)</output>
         </code>
     </div>
+<!--
     <div id="merge_conflicts" title="Merging conflicts" class="step slide">
         <h3>Merge conflicts</h3>
         <p>Create the conflict:</p>
@@ -310,6 +299,7 @@ no changes added to commit (use "git add" and/or "git commit -a")</output>
 
         <code><command>git cherry-pick b059311</command></code>
     </div>
+-->
     <div id="remote" title="Remote repositories" class="step slide">
         <h3>Remote repositories</h3>
         Connecting with other repositories:
@@ -342,6 +332,7 @@ no changes added to commit (use "git add" and/or "git commit -a")</output>
         See what's in the stash:
         <code><command>git stash list</command></code>
     </div>
+<!--
     <div id="notes" class="step slide nok">
         <h3>Making notes</h3>
 
@@ -351,6 +342,7 @@ no changes added to commit (use "git add" and/or "git commit -a")</output>
 <command>git notes show b059311</command>
         </code>
     </div>
+-->
     <div id="eofs" class="step slide nok">
         <h3>&lt;cr&gt;&lt;lf&gt;</h3>
         <!-- thank Peter -->
@@ -387,6 +379,7 @@ dirname
         <code><command>git config --global core.excludesfile ~/.git/.gitignore</command></code>
 
     </div>
+<!--
     <div id="tips" class="step slide nok">
         <h3>Tips</h3>
         <p>See <a href="http://wiki.typo3.org/Tips_and_Tricks_(Git)">wiki.typo3.org/Tips_and_Tricks_(Git)</a>.</p>
@@ -402,6 +395,8 @@ dirname
                 <code><command>git config --global core.excludesfile &lt;file&gt;</command></code></li>
         </ul>
     </div>
+-->
+<!--
     <div id="readon" title="Readon" class="step slide">
         <h3>Resources</h3>
         <ul>
@@ -415,6 +410,7 @@ dirname
             <li><a href="http://nvie.com/posts/a-successful-git-branching-model/">A successful branching model [nvie.com/posts/a-successful-git-branching-model]</a></li>
         </ul>
     </div>
+-->
     <div id="overview" class="step" data-x="0" data-y="0" data-scale="13" data-rotate-x="-90">
         <!--<b>Stretch</b> <p>your legs.</p>-->
     </div>

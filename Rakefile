@@ -17,8 +17,8 @@ end
 desc "Stop the demo server"
 task :stop do
     if File.exist?(@pid_file)
-        Process.kill("TERM", File.read(@pid_file).to_i)
 	File.delete(@pid_file)
+        Process.kill("TERM", File.read(@pid_file).to_i)
     end
 end
 
